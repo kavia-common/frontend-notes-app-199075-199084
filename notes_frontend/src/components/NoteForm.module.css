@@ -1,0 +1,50 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.input,
+.textarea {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  font: inherit;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.input:focus,
+.textarea:focus {
+  box-shadow: var(--focus);
+  border-color: rgba(59, 130, 246, 0.6);
+}
+
+.error {
+  color: var(--error);
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}

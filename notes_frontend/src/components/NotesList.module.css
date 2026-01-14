@@ -1,0 +1,25 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty {
+  border: 1px dashed rgba(100, 116, 139, 0.35);
+  background: rgba(100, 116, 139, 0.06);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.emptyTitle {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.emptyBody {
+  color: var(--secondary);
+  font-size: 14px;
+}

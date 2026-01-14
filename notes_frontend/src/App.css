@@ -1,104 +1,258 @@
-/* CSS Variables for Theme Management */
+/* App theme (modern light) */
 :root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+  --primary: #3b82f6;
+  --secondary: #64748b;
+  --success: #06b6d4;
+  --error: #ef4444;
+
+  --background: #f9fafb;
+  --surface: #ffffff;
+  --text: #111827;
+
+  --border: rgba(17, 24, 39, 0.12);
+  --shadow: 0 10px 25px rgba(17, 24, 39, 0.08);
+  --shadow-sm: 0 4px 14px rgba(17, 24, 39, 0.08);
+
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  --focus: 0 0 0 3px rgba(59, 130, 246, 0.25);
 }
 
-[data-theme="dark"] {
-  /* Dark theme colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
-  --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
-  --button-text: #ffffff;
+* {
+  box-sizing: border-box;
 }
 
 .App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(59, 130, 246, 0.12), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(6, 182, 212, 0.10), transparent 50%),
+    var(--background);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
+.AppHeader {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 20px 14px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
-  position: relative;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.App-link {
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
+.AppTitle {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
-.theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
+.AppSubtitle {
+  margin: 6px 0 0;
+  color: var(--secondary);
   font-size: 14px;
+}
+
+.HeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 320px;
+}
+
+.Main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 20px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 16px;
+}
+
+.Card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+}
+
+.CardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.CardTitle {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.Badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--primary);
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.BadgeInfo {
+  color: var(--success);
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+.Meta {
+  display: flex;
+  gap: 12px;
+  color: var(--secondary);
+  font-size: 13px;
+}
+
+.MetaItem strong {
+  color: var(--text);
+}
+
+/* Inputs */
+.Input {
+  width: 100%;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  padding: 0 12px;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  box-shadow: none;
+}
+
+.Input::placeholder {
+  color: rgba(100, 116, 139, 0.85);
+}
+
+.Input:focus {
+  box-shadow: var(--focus);
+  border-color: rgba(59, 130, 246, 0.6);
+}
+
+/* Buttons */
+.Button {
+  height: 40px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.05s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
 }
 
-.theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
+.Button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
 }
 
-.theme-toggle:active {
-  transform: translateY(0);
+.Button:active {
+  transform: translateY(1px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Button:disabled,
+.Button[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.ButtonPrimary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 10px 18px rgba(59, 130, 246, 0.18);
+}
+
+.ButtonPrimary:hover {
+  background: #2563eb;
+}
+
+.ButtonSecondary {
+  background: rgba(100, 116, 139, 0.10);
+  border-color: rgba(100, 116, 139, 0.22);
+  color: var(--text);
+}
+
+.ButtonSecondary:hover {
+  background: rgba(100, 116, 139, 0.14);
+}
+
+.IconButton {
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(100, 116, 139, 0.22);
+  background: rgba(100, 116, 139, 0.08);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.IconButton:hover {
+  background: rgba(100, 116, 139, 0.12);
+}
+
+.IconButton:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+.IconButtonDanger {
+  border-color: rgba(239, 68, 68, 0.25);
+  background: rgba(239, 68, 68, 0.08);
+  color: #991b1b;
+}
+
+.IconButtonDanger:hover {
+  background: rgba(239, 68, 68, 0.12);
+}
+
+/* Accessibility helper */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Footer */
+.Footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px 24px;
+  color: var(--secondary);
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .AppHeader {
+    align-items: flex-start;
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-/* Responsive design for mobile */
-@media (max-width: 768px) {
-  .theme-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    font-size: 12px;
+  .HeaderActions {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .Main {
+    grid-template-columns: 1fr;
   }
 }
